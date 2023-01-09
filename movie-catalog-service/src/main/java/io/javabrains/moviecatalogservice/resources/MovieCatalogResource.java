@@ -32,7 +32,7 @@ public class MovieCatalogResource {
             Movie movie =  restTemplate.getForObject("http://movie-info-service/movies/" +rating.getMovieId(), Movie.class);
 
             // Put them all together
-            return new CatalogItem(movie.getName(), "Test", rating.getRating());
+            return new CatalogItem(movie.getName(), movie.getDescription(), rating.getRating());
         }).collect(Collectors.toList());
 
     }
